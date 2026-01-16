@@ -87,19 +87,19 @@
                 </div>
             </div>
 
-            <!-- Managed Support Tracks -->
+            <!-- Identified Pain Points -->
             <div class="content-block">
-                <div class="section-title">Support Tracks</div>
+                <div class="section-title">Barriers to Empowerment</div>
                 <div class="pain-points-list" id="painPointsList">
                     <!-- Dynamic Content -->
                 </div>
                 <div
-                    style="margin-top: 2rem; padding: 1.5rem; background: rgba(99, 102, 241, 0.05); border-radius: 1rem; border: 1px solid rgba(99, 102, 241, 0.1);">
-                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-light);">SUCCESS TRACKING
-                        LOGIC</div>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Every interaction
-                        captures vendor readiness. The figures above represent the total volume of vendors successfully
-                        guided into specific banking and documentation pipelines.</p>
+                    style="margin-top: 2rem; padding: 1.5rem; background: rgba(239, 68, 68, 0.05); border-radius: 1rem; border: 1px solid rgba(239, 68, 68, 0.1);">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: #ef4444;">PAIN POINT ANALYSIS</div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">The percentages above
+                        show the distribution of the <strong>60 identified barriers</strong> across different
+                        categories. Each point represents a key area discovered through counseling where vendors require
+                        targeted support to proceed with their loan applications.</p>
                 </div>
             </div>
         </div>
@@ -149,9 +149,9 @@
                             Knowledge</strong> into <strong>Interest</strong>.</p>
                 </div>
                 <div class="logic-card">
-                    <div class="logic-title">Lifecycle Guidance</div>
-                    <p class="logic-desc">A continuous pipeline for <strong>Banking, Documentation, and Digital
-                            Skills</strong> support tracking.</p>
+                    <div class="logic-title">Barrier Identification</div>
+                    <p class="logic-desc">Consistently tracking and categorizing <strong>vendor pain points</strong> and
+                        specific reasons for loan hesitation identified during counseling.</p>
                 </div>
             </div>
         </section>
@@ -171,12 +171,13 @@
             finalInterest: 6.45
         };
 
-        const supportAreas = [
-            { label: 'Banking Integration Ready', count: 32 },
-            { label: 'Support Pipeline Activated', count: 17 },
-            { label: 'Documentation Support Path', count: 6 },
-            { label: 'Digital Readiness Guidance', count: 4 },
-            { label: 'Ecosystem Wellbeing Success', count: 1 }
+        const totalIdentified = 60;
+        const painPointsData = [
+            { label: 'Banking Related Hurdles', count: 32 },
+            { label: 'Information Dissemination Gaps', count: 17 },
+            { label: 'Documentation Challenges', count: 6 },
+            { label: 'Technical/Digital Barriers', count: 4 },
+            { label: 'Health Case Considerations', count: 1 }
         ];
 
         // Awareness Chart
@@ -215,12 +216,13 @@
             }
         });
 
-        // Support Tracks List
+        // Pain Points List
         const listContainer = document.getElementById('painPointsList');
-        supportAreas.forEach(area => {
+        painPointsData.forEach(area => {
+            const percentage = ((area.count / totalIdentified) * 100).toFixed(1);
             const item = document.createElement('div');
             item.className = 'pain-point-item';
-            item.innerHTML = `<div><span class="pain-tag">${area.label}</span></div><div class="pain-count" style="background:var(--primary)">${area.count}</div>`;
+            item.innerHTML = `<div><span class="pain-tag">${area.label}</span></div><div class="pain-count" style="background:rgba(239, 68, 68, 0.2); color:#ef4444; border: 1px solid rgba(239, 68, 68, 0.2); padding: 0.25rem 0.5rem; width: 60px; text-align: center;">${percentage}%</div>`;
             listContainer.appendChild(item);
         });
 
